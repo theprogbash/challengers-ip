@@ -39,3 +39,10 @@ class Message(models.Model):
 
     def __str__(self):
         return self.sender_name
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name

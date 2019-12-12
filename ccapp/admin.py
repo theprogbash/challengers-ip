@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Applicant, ApplicantStatus, Message
+from .models import Question, Applicant, ApplicantStatus, Message, Teacher
 from django.contrib.auth.models import Group, User
 
 class QuestionAdmin(admin.ModelAdmin):
@@ -11,9 +11,13 @@ class ApplicantAdmin(admin.ModelAdmin):
 class MessageAdmin(admin.ModelAdmin):
     list_display = ('sender_name', 'message_text', 'sender_email')
 
+class TeacherAdmin(admin.ModelAdmin):
+    list_display = ('name', 'surname')
+
 admin.site.site_header = "Challengers Club - Admin Dashboard" 
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Applicant, ApplicantAdmin)
 admin.site.register(Message, MessageAdmin)
+admin.site.register(Teacher, TeacherAdmin)
