@@ -1,0 +1,669 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Challengers Club</title>
+</head>
+
+<body>
+    <div class="contact-overlay">
+        <div class="contact-popup">
+            <section class="popup-header">
+                <div class="popup-left-header">
+                    <p>Müraciət anketi</p>
+                </div>
+                <div class="popup-right-header">
+                    <i class="fas fa-times" id="popup-closer"></i>
+                </div>
+            </section>
+            <section class="popup-body">
+                <form action="{% url 'index' %}" method="POST">
+                    {% csrf_token %}
+                    <label>Ad</label><br />
+                    <input type="text" name="name" required minlength="3" 
+                    oninvalid="this.setCustomValidity('Adınız minimum 3 hərfdən ibarət ola bilər.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Soyad</label><br />
+                    <input type="text" name="surname" required minlength="3"
+                    oninvalid="this.setCustomValidity('Soyadınız minimum 3 hərfdən ibarət ola bilər.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Doğum tarixi</label><br />
+                    <input type="date" name="birth_date" required
+                    oninvalid="this.setCustomValidity('Doğum tarixinizi seçin.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Telefon nömrəsi</label><br />
+                    <input type="number" name="phone" required minlength="10"
+                    oninvalid="this.setCustomValidity('Telefon nömrənizi düzgün daxil edin.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Elektron poçt</label><br />
+                    <input type="email" name="email" required minlength="10"
+                    oninvalid="this.setCustomValidity('Elektron poçt ünvanınızı düzgün daxil edin.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Özünü tanıt</label><br />
+                    <textarea class="smth-else-textarea" cols="30" rows="10" name="motivation_letter" required
+                    oninvalid="this.setCustomValidity('Motivasiya məktubunu boş saxlamaq olmaz.')"
+                    oninput="this.setCustomValidity('')"></textarea><br />
+                    <input type="submit" value="Göndər" class="apply-button"/>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <header id="header-section" data-anchor="header">
+        <nav class="pc-nav">
+            <div class="container">
+
+                <div class="left-nav">
+                    <img src="{% static 'img/logo.svg' %}" alt="Image not found :/">
+                </div>
+
+                <div class="right-nav">
+                    <ul>
+                        <li><a data-scroll="header" href="#header-section" class="active-nav">Ana səhifə</a></li>
+                        <li><a data-scroll="about" href="#about-section">Layihə</a></li>
+                        <li><a data-scroll="terms" href="#terms-section">Qəbul şərtləri</a></li>
+                        <li><a data-scroll="attendants" href="#attendants-section">İştirakçılar</a></li>
+                        <li><a data-scroll="most-asked" href="#most-asked-section">Sual - Cavab</a></li>
+                        <li><a data-scroll="most-asked" href="#most-asked-section">FAQ</a></li>
+                        <li><a data-scroll="contact" href="#contact-section">Əlaqə</a></li>
+                        <li><button class="apply-button" id="popup-opener">Müraciət et</button></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+        <nav class="small-nav">
+            <div class="container">
+                <div class="left-nav">
+                    <img src="{% static 'img/logo.svg' %}" alt="Image not found :/">
+                </div>
+                <div class="right-nav">
+                    <i class="fas fa-bars show-menu"></i><br><br>
+                    <ul class="small-nav-menu">
+                        <i class="fas fa-times" id="close-menu"></i>
+                        <li><a href="#header-section" data-scroll="header" class="active-nav">Ana səhifə</a></li>
+                        <li><a href="#about-section" data-scroll="about">Layihə</a></li>
+                        <li><a href="#terms-section" data-scroll="terms">Qəbul şərtləri</a></li>
+                        <li><a href="#attendants-section" data-scroll="attendants">İştirakçılar</a></li>
+                        <li><a href="#most-asked-section" data-scroll="most-asked">Sual-cavab</a></li>
+                        <li><a href="#contact-section" data-scroll="contact">Əlaqə</a></li>
+                        <li><button class="apply-button" id="small-popup-opener">Müraciət et</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="greeting-div">
+            <div class="video-overlay">
+                <section class="video-overlay-header">
+                    <i class="fas fa-times" id="popup-closer"></i>
+                </section>
+                <div class="video-popup">
+                    <iframe src="https://www.youtube.com/embed/D1-wVoTp1S0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="left-side-greeting">
+                <h1>24 şanslı proqramçıdan biri də sən ol</h1>
+                <p>2020 - ci il sənin ilin olsun. Sadəcə 24 nəfərin seçiləcəyi layihədə iştirak etmə haqqı qazan, tamamən ödənişsiz formada online təlimlər vasitəsi ilə proqramçı olma xəyalını reallaşdır.</p>
+                <button id="watch-video">
+                    <i class="fas fa-play-circle"></i>
+                    Videonu izlə</button>
+            </div>
+
+            <!-- <div class="right-side-greeting">
+                <img src="img/7.png" class="green-circle">
+                <img src="img/9.png" class="orange-circle">
+                <img src="img/3.png" class="blue-parall">
+                <img src="img/4.png" class="purple-circle">
+                <img src="img/2.png" class="green-square">
+                <img src="img/10.png" class="lines">
+                <img src="img/1.png" class="purple-square">
+                <img src="img/8.png" class="pink-circle">
+                <img src="img/11.png" class="line">
+                <img src="img/6.png" class="comment">
+                <img src="img/7.png" class="small-green-circle">
+                <iframe src="https://www.youtube.com/embed/YVkUvmDQ3HY" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div> -->
+
+        </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <main>
+
+        <section id="about-section" data-anchor="about">
+
+            <div class="left-side-about">
+                <img src="{% static 'img/undraw-developer-activity.svg' %}" alt="Image not found :/">
+            </div>
+
+            <div class="right-side-about">
+                <span>CHALLENGERS CLUB</span>
+                <h2>Bizim Haqqımızda</h2>
+                <ul>
+                    <li>Təhsil tamamən “online” platforma üzərindən aparılacaq;</li>
+                    <li>Sabit dərs proqramı yoxdur. İştirakçıların ehtiyacına görə və birlikdə qərarlaşdırılan formatda xüsüsi olaraq tədris planı təyin olunacaq;</li>
+                    <li>Sabit dərs vaxtları yoxdur. Sadəcə müəyyən periodlarla müzakirə formatlı görüşlərdə iştirak tələb olunacaq;</li>
+                    <li>Seçilən və qərarlaşdırılan tədris planına uyğun olaraq tapşırıqlar təyin olunacaq;</li>
+                    <li>Aylıq dəyərləndirmələr nəticəsində qənaətbəxş inkişaf tempi göstərə bilən tələbələr proqrama davam edə biləcəklər;</li>
+                    <li>Tədris ilk aylarda dərs formatında, sonrakı aylarda real layihələr üzərində mentorluq formatında davam edəcək;</li>
+                    <li>Təhsil ödənişsizdir.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="terms-section" data-anchor="terms">
+            <h2>Qəbul prosesi və şərtləri</h2>
+            <div class="terms">
+
+                <div class="term">
+                    <div class="register-term-overlay">
+                        <div class="register-term-popup">
+                            <div class="term-popup-header">
+                                <i class="fas fa-times term-popup-closer"></i>
+                            </div>
+                            <div class="term-popup-body">
+                                <h4>Müraciət formunu doldurarkən bəzi məqamlara diqqət et zəhmət olmasa</h4>
+                                <ul class="customized-list">
+                                    <li>Özün haqqında məlumatlar dəqiq olsun. Bu layihədə müraciət edən təxmin edəcəyin kimi çox olacaq. Bu səbəbdən özün haqqında yazdığın hər ifadə əhəmiyyətlidir.</li>
+                                    <li>Layihədə iştirak etmə istəyini tam dəqiqliklə ifadə et. Bu layihədən nə gözlədiyin və proqramçı olma motivasiyanı izah etməlisən. </li>
+                                    <li>Məşquliyyətin haqqında məlumat ver. Cünki bu sənin layihəyə ayırabiləcəyin vaxt üçün əhəmiyyət daşıyır. </li>
+                                    <li>Proqramlaşdırma keçmişin varsa onu mütləq bildirşLayihə daha çox sıfırdan başlayanlar üçündür amma sənin proqramlaşdırma keçmişin layihəyə seçilməyində əhəmiyyətli rol oynayır.</li>
+                                    <li>Layihəyə seçilmiş olsan hədəfin nə olacaq? Bu hədəfini ətraflı izah etsən əla olar.</li>
+                                    <li>Ailənlə məsləhətləşmədən müraciət etmə.Cünki sənin bu layihədə iştirakın onların da həyatına təsir edəcək. Buna görə də onlarla məsləhətləş sonra müraciət et.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="term-icon-container">
+                        <img src="{% static 'img/combined-shape (2).svg' %}" alt="Image not found :/">
+                        <img src="{% static 'img/www.svg' %}" alt="Image not found :/">
+                    </div>
+                    <h3>1. Müraciət</h3>
+                    <p>Özün haqqında məlumat ver və bu layihədə iştirakın sənin üçün kəsb etdiyi əhəmiyyəti izah et.</p>
+                    <button class="apply-button register-term-button">Nələr yazmağım lazımdır?</button>
+                </div>
+
+                <div class="term">
+                    <div class="apply-term-overlay">
+                        <div class="apply-term-popup">
+                            <div class="term-popup-header">
+                                <i class="fas fa-times term-popup-closer"></i>
+                            </div>
+                            <div class="term-popup-body">
+                                <h4>İngilis dili niyə əhəmiyyətlidir?</h4>
+                                <p>Sən global səviyyədə proqramçı olmaq istəyirsənsə ilk əldə etməli olduğun qabiliyyət ingilis dil biliyidir. Layihə boyunca təqdim olunacaq bütün qaynaqlar ingilis dilində olacaq. Səndən bəzən dakumentasiya yazılması tələb
+                                    olunacaq və bu inglis dilində olmalıdır. Bəz vaxtlarda ingilis dilli mütəxəssislərin görüşlərində seminarlarında iştirakın tələb olunacaq. Bütün bu səbəblərdən mütləq şəkildə ingilis dil biliyindən əmin olmaq tələb
+                                    olunur. Minimum intermediate səviyyədə ingilis dili biliyin olmalıdır. Varsa sertifikatını gətir yoxdursa müraciətində bildir, müsahibə zamanı ingilis dili biliyin əlavə olaraq yoxlanılacaq.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="term-icon-container">
+                        <img src="{% static 'img/combined-shape (1).svg' %}" alt="Image not found :/">
+                        <img src="{% static 'img/website.svg' %}" alt="Image not found :/">
+                    </div>
+                    <h3>2. İngilis dili</h3>
+                    <p>Layihədə iştirak üçün ingilis dilinin əhəmiyyəti böyükdür. Dil biliyini təsdiqləməyin lazım olacaq.</p>
+                    <button class="apply-button apply-term-button">Niyə əhəmiyyətlidir?</button>
+                </div>
+
+                <div class="term">
+                    <div class="result-term-overlay">
+                        <div class="result-term-popup">
+                            <div class="term-popup-header">
+                                <i class="fas fa-times term-popup-closer"></i>
+                            </div>
+                            <div class="term-popup-body">
+                                <h4>Hansı formada olacaq?</h4>
+                                <p>
+                                    İlk iki mərhələdə seçiləcək olan gənclərlə bəzən online bəzən də ehtiyaca görə offline müsahibə ya da müsahibələr olacaq. Bu müsahibələr səni tanımaq, 12 aylıq marafona motivasiya və digər aspektlərdən uyğun olub olmadığına qərar vermək üçün son mərhələdir.
+                                    Məsuliyyətin və həvəsindən əmin olmağımız lazımdır işə başlamaq üçün. Hər hansı ön hazırlığa və s. ehtiyac yoxdur. Səndən CV tələb edilməyəcək ya da standart müsahibələr kimi "5 il sonra özünü harda görürsən?" tipli
+                                    suallar verilməyəcək. Bunu kofe içib bir birini tanıma seansı olaraq da düşünə bilərsən. Odur ki tək tələb səmimi olmaqdır.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="term-icon-container">
+                        <img src="{% static 'img/combined-shape.svg' %}" alt="Image not found :/">
+                        <img src="{% static 'img/appointment.svg' %}" alt="Image not found :/">
+                    </div>
+                    <h3>3. Müsahibə</h3>
+                    <p>Danışaq, kofe içək, son qərarımızı verək. Bir, ya da daha çox müsahibədən keçməli olacaqsan.
+                    </p>
+                    <button class="apply-button result-term-button">Nə soruşulacaq?</button>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="attendants-section" data-anchor="attendants">
+            <h2>İştirakçılar</h2>
+            <div class="attendants-container">
+                
+                {% for applicant in applicants %}
+                <div class="card">
+                    <div class="img-container">
+                        <img src="{{ applicant.photo }}" alt="Image not found :/">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="attendant-name">{{ applicant.name }} {{ applicant.surname }}</h3>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% for empty_card in empty_cards %}
+                <div class="card">
+                    <div class="img-container">
+                        <div class="replace-img">
+                            <i class="fas fa-camera"></i>
+                            <p>Burada sənin şəklin ola bilər</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="attendant-name">Ad Soyadın</h3>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="hidden-layout">
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-container">
+                            <!-- <img src="img/jobs.jpg" alt="Image not found :/"> -->
+                            <div class="replace-img">
+                                <i class="fas fa-camera"></i>
+                                <p>Sənin şəklin burada</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="attendant-name">Steve Jobs</h3>
+                            <span class="attendant-highschool">Stanford University, Computer Science</span><br>
+                            <a href="kamranmzam@code.edu.az" class="attendant-email">kamranmzam@code.edu.az</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="most-asked-section" data-anchor="most-asked">
+            <h2>Tez-tez soruşulan suallar</h2>
+
+            <div class="accordion-container">
+                {% for question in questions %}
+                <button class="accordion">{{ question.question_text }}</button>
+                <div class="sub-menu">
+                    <p>{{ question.answer }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="contact-section" data-anchor="contact">
+            
+            <div class="contact-left-side">
+                <h2>Əlaqə</h2>
+                <p>
+                    Layihə haqqında cavab tapa bilmədiyin sualları, təklif və iradlarını mütləq bildir. Ən qısa zamanda cavablandırılacağından əmin ola bilərsən.
+                </p>
+                <p class="contact-p">E-mail: &nbsp; <a href="#">hi@challengers.az</a></p>
+            </div>
+
+            <div class="contact-right-side">
+                <form action="{% url 'index' %}" method="POST">
+                    {% csrf_token %}
+                    <label>Ad Soyad</label><br />
+                    <input type="text" name="sender_name" required minlength="3" 
+                    oninvalid="this.setCustomValidity('Adınız minimum 3 hərfdən ibarət ola bilər.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Elektron Poçt</label><br />
+                    <input type="email" name="sender_email" required minlength="10"
+                    oninvalid="this.setCustomValidity('Elektron poçt ünvanınızı düzgün daxil edin.')"
+                    oninput="this.setCustomValidity('')"><br />
+                    <label>Müraciət mətni</label><br />
+                    <textarea rows="5" name="message_text" required
+                    oninvalid="this.setCustomValidity('Mesaj bölməsini boş saxlamaq olmaz.')"
+                    oninput="this.setCustomValidity('')"></textarea><br />
+                    <input type="submit" value="Göndər" class="apply-button">
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="divider"></div>
+
+    <footer>
+
+        <div class="footer-left-side">
+            <span>© 2019-2020 Challengers Club.</span>
+        </div>
+
+        <div class="footer-right-side">
+            <ul>
+                <li><i class="fab fa-facebook-f"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+                <li><i class="fab fa-linkedin-in"></i></li>
+                <li><i class="fab fa-youtube"></i></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <script src="{% static 'js/nav-highlighter.js' %}"></script>
+</body>
+
+</html>
