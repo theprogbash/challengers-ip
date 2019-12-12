@@ -11,13 +11,10 @@ class ApplicantAdmin(admin.ModelAdmin):
 class MessageAdmin(admin.ModelAdmin):
     list_display = ('sender_name', 'message_text', 'sender_email')
 
-class ApplicantStatusAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
-
 admin.site.site_header = "Challengers Club - Admin Dashboard" 
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Applicant, ApplicantAdmin)
 admin.site.register(Message, MessageAdmin)
-admin.site.register(ApplicantStatus, ApplicantStatusAdmin)
+admin.site.register(ApplicantStatus)
