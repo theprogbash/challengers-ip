@@ -3,7 +3,7 @@ from .models import Question, Applicant, ApplicantStatus, Message, ApplicantStat
 from django.contrib.auth.models import Group, User
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question_text', 'answer')
+    list_display = ('question_text')
 
 class ApplicantAdmin(admin.ModelAdmin):
     list_display = ('name', 'surname', 'birth_date', 'phone', 'email', 'motivation_letter', 'status', 'photo')
