@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Applicant, ApplicantStatus, Message, ApplicantStatus
+from .models import Question, Applicant, ApplicantStatus, Message
 from django.contrib.auth.models import Group, User
 
 class QuestionAdmin(admin.ModelAdmin):
