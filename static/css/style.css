@@ -1225,9 +1225,10 @@ footer a:visited{
         position: relative;
         padding-bottom: 56.25%;
         width: 85%;
-        height: auto;
-        top: 50%;
-        margin-top: -35%;
+        height: 80vh;
+        top: 10vh;
+        margin-top: 0px;
+        overflow: scroll;
     }
     .popup-body input{
         margin: 5px 0px;
