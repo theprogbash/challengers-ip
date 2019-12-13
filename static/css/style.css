@@ -5,8 +5,8 @@
 }
 .fa-times:before{
     content: "×";
-    font-size: 2.5em;
-    font-weight: 100;
+    font-size: 3em;
+    font-weight: lighter;
 }
 @font-face {
     font-family:"TTHoves-Medium";
