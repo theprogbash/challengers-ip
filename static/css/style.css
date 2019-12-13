@@ -1056,7 +1056,7 @@ footer a:visited{
     padding-bottom: 20px;
 }
 
-.popup-left-header p, .video-overlay-header i{
+.popup-left-header p{
     font-size: 24px;
     line-height: 2;
     margin: 0;
@@ -1290,7 +1290,7 @@ footer a:visited{
         align-items: center;
     }
     .greeting-buttons-container button{
-        margin: 2%;
+        margin: 4% 4%;
     }
     .greeting-div .left-side-greeting h1{
         font-size: 35px;
