@@ -24,13 +24,17 @@ for (let i = 0; i < accordion.length; i++) {
 // });
 
 // for displaying popup
-let popupOpener = document.getElementById("popup-opener");
+let popupOpener = document.getElementsByClassName("popup-opener")[0];
+let secondPopupOpener = document.getElementsByClassName("popup-opener")[1];
 // let popupOpenerPage = document.getElementById("popup-opener-page");
 let smallPopupOpener = document.getElementById("small-popup-opener");
 let popupCloser = document.getElementById("popup-closer");
 let popup = document.getElementsByClassName("contact-overlay")[0];
 
 popupOpener.addEventListener("click", function () {
+  popup.setAttribute("style", "display: block;");
+});
+secondPopupOpener.addEventListener("click", function () {
   popup.setAttribute("style", "display: block;");
 });
 // popupOpenerPage.addEventListener("click", function () {
@@ -56,7 +60,6 @@ $(document).ready(function (){
     //for cards' image ratio
     let cardImageWidth = $(".img-container").width();
     $(".img-container").css("height", cardImageWidth);
-    $(".img-container img").css("height", cardImageWidth);
 
     var $nav = $("nav");
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
