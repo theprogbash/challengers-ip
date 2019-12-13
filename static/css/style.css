@@ -279,6 +279,15 @@ nav.scrolled {
     vertical-align: middle;
     margin-right: 5px;
 }
+.greeting-buttons-container{
+    display: flex;
+    justify-content: center;
+}
+.greeting-buttons-container .apply-button{
+    margin: 0px 4%;
+    height: 48px;
+    width: 164px;
+}
 
 
 /* .right-side-greeting img {
@@ -926,6 +935,14 @@ textarea {
     height: 48px;
 }
 
+.messaging-container div{
+    width: 48%;
+    display: inline-block;
+}
+.messaging-email-container{
+    float: right;
+}
+
 /* contact section ended */
 
 /* footer started */
@@ -971,6 +988,12 @@ footer {
     border-radius: 50%;
     margin: 0px 7px;
     cursor: pointer;
+}
+.footer-right-side a{
+    color: black;
+}
+.footer-right-side a:visited{
+    color: black;
 }
 
 .fa-facebook-f:hover {
@@ -1033,8 +1056,7 @@ footer a:visited{
     padding-bottom: 20px;
 }
 
-.popup-left-header p,
-.popup-right-header i, .video-overlay-header i{
+.popup-left-header p, .video-overlay-header i{
     font-size: 24px;
     line-height: 2;
     margin: 0;
@@ -1050,6 +1072,7 @@ footer a:visited{
 
 .popup-right-header i {
     cursor: pointer;
+    color: var(--main-gray);
 }
 
 .popup-left-header {
@@ -1057,8 +1080,9 @@ footer a:visited{
 }
 
 .popup-right-header {
-    float: right;
-    vertical-align: middle;
+    position: absolute;
+    right: 10px;
+    top: -5px;
 }
 
 .popup-body input,
@@ -1239,6 +1263,10 @@ footer a:visited{
     .contact-left-side p{
         width: 100%;
     }
+    .messaging-container div {
+        width: 100%;
+        display: block;
+    }
     footer {
         text-align: center;
     }
@@ -1274,3 +1302,5 @@ footer a:visited{
         height: 80vh;
     }
 }
+
+

@@ -72,9 +72,8 @@
                         <li><a data-scroll="terms" href="#terms-section">Qəbul şərtləri</a></li>
                         <li><a data-scroll="attendants" href="#attendants-section">İştirakçılar</a></li>
                         <li><a data-scroll="most-asked" href="#most-asked-section">Sual - Cavab</a></li>
-                        <li><a data-scroll="most-asked" href="#most-asked-section">FAQ</a></li>
                         <li><a data-scroll="contact" href="#contact-section">Əlaqə</a></li>
-                        <li><button class="apply-button" id="popup-opener">Müraciət et</button></li>
+                        <li><button class="apply-button popup-opener">Müraciət et</button></li>
                     </ul>
                 </div>
 
@@ -115,9 +114,10 @@
             <div class="left-side-greeting">
                 <h1>24 şanslı proqramçıdan biri də sən ol</h1>
                 <p>2020 - ci il sənin ilin olsun. Sadəcə 24 nəfərin seçiləcəyi layihədə iştirak etmə haqqı qazan, tamamən ödənişsiz formada online təlimlər vasitəsi ilə proqramçı olma xəyalını reallaşdır.</p>
-                <button id="watch-video">
-                    <i class="fas fa-play-circle"></i>
-                    Videonu izlə</button>
+                <div class="greeting-buttons-container">
+                    <button class="apply-button popup-opener">Müraciət et</button>
+                    <button id="watch-video"><i class="fas fa-play-circle"></i>Videonu izlə</button>
+                </div>
             </div>
 
             <!-- <div class="right-side-greeting">
@@ -622,14 +622,23 @@
             <div class="contact-right-side">
                 <form action="{% url 'index' %}" method="POST">
                     {% csrf_token %}
-                    <label>Ad Soyad</label><br />
-                    <input type="text" name="sender_name" required minlength="3" 
-                    oninvalid="this.setCustomValidity('Adınız minimum 3 hərfdən ibarət ola bilər.')"
-                    oninput="this.setCustomValidity('')"><br />
-                    <label>Elektron Poçt</label><br />
-                    <input type="email" name="sender_email" required minlength="10"
-                    oninvalid="this.setCustomValidity('Elektron poçt ünvanınızı düzgün daxil edin.')"
-                    oninput="this.setCustomValidity('')"><br />
+                    <div class="messaging-container">
+
+                        <div class="messaging-fullname-container">
+                            <label>Ad Soyad</label><br />
+                            <input type="text" name="sender_name" required minlength="3" 
+                            oninvalid="this.setCustomValidity('Adınız minimum 3 hərfdən ibarət ola bilər.')"
+                            oninput="this.setCustomValidity('')"><br />
+                        </div>
+
+                        <div class="messaging-email-container">
+                            <label>Elektron Poçt</label><br />
+                            <input type="email" name="sender_email" required minlength="10"
+                            oninvalid="this.setCustomValidity('Elektron poçt ünvanınızı düzgün daxil edin.')"
+                            oninput="this.setCustomValidity('')"><br />
+                        </div>
+
+                    </div>
                     <label>Müraciət mətni</label><br />
                     <textarea rows="5" name="message_text" required
                     oninvalid="this.setCustomValidity('Mesaj bölməsini boş saxlamaq olmaz.')"
@@ -652,10 +661,10 @@
 
         <div class="footer-right-side">
             <ul>
-                <li><i class="fab fa-facebook-f"></i></li>
-                <li><i class="fab fa-instagram"></i></li>
-                <li><i class="fab fa-linkedin-in"></i></li>
-                <li><i class="fab fa-youtube"></i></li>
+                <li><a href="https://www.facebook.com/challengers.az/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/challengers.az/"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/challengers-club/"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCoa2f81oeaUYSFWCAfRERgg/featured"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
     </footer>
