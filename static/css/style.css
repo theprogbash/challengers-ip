@@ -132,6 +132,8 @@ header {
     position: absolute;
     top: 15px;
     right: 20px;
+    color: var(--main-gray);
+    font-size: 24px;
 }
 
 .small-nav .right-nav li {
@@ -698,6 +700,7 @@ nav.scrolled {
 .term-popup-header i{
     font-size: 24px;
     cursor: pointer;
+    color: var(--main-gray);
 }
 .result-term-overlay p{
     color: var(--main-gray);
@@ -1141,6 +1144,12 @@ footer a:visited{
     .small-nav-menu{
         text-align: center;
     }
+    a[data-scroll="header"]{
+        margin-top: 32px;
+    }
+    .small-nav-menu li a{
+        font-size: 20px;
+    }
     .small-nav-menu .apply-button{
         position: absolute;
         margin-left: auto;
@@ -1149,6 +1158,15 @@ footer a:visited{
         right: 0;
         bottom: 15px;
         width: 95%;
+        height: 48px;
+        font-size: 20px;
+    }
+    .small-nav-menu{
+        height: 100%;
+        position: fixed;
+    }
+    .contact-button-container{
+        margin-top: auto;
     }
     .small-nav .right-nav ul a{
         padding: 15px 0px;
