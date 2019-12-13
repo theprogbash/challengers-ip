@@ -1279,8 +1279,18 @@ footer a:visited{
 }
 
 @media screen and (max-width: 590px) {
+    header{
+        height: auto;
+    }
     .small-nav-menu {
         width: 100%;
+    }
+    .greeting-buttons-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .greeting-buttons-container button{
+        margin: 2%;
     }
     .greeting-div .left-side-greeting h1{
         font-size: 35px;
