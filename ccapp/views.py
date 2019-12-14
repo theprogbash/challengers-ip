@@ -30,8 +30,8 @@ def index(request):
         sender_email = request.POST.get('sender_email')
         sender_name = request.POST.get('sender_name')
         subject = 'Challengers Club-a xoş gəldin !'
-        message = 'Hörmətli ' + str(sender_name) + '! \n Müraciətiniz üçün təşəkkür edirik. Tezliklə sualınız və ya təklifiniz cavablandırılacaq.'
-        from_email = settings.EMAIL_HOST_USER
+        message = 'Hörmətli ' + str(sender_name) + '! \n Müraciətiniz üçün təşəkkür edirik. Tezliklə sualınız cavablandırılacaq.'
+        from_email = settings.SERVER_EMAIL
         recipient_list = [sender_email]
         send_mail(subject, message, from_email, recipient_list)
 
