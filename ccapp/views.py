@@ -33,6 +33,6 @@ def index(request):
         message = 'Hörmətli ' + str(sender_name) + '! \nMüraciətiniz üçün təşəkkür edirik. Tezliklə sualınız cavablandırılacaq.'
         from_email = settings.SERVER_EMAIL
         recipient_list = [sender_email]
-        send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+        send_mail(subject, message, from_email, recipient_list)
 
     return render(request, 'index.html', context)
