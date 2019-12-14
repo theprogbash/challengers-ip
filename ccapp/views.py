@@ -35,4 +35,15 @@ def index(request):
         recipient_list = [sender_email]
         send_mail(subject, message, from_email, recipient_list)
 
+    if request.method == 'POST':
+        name = request.POST.get('name'),
+        surname = request.POST.get('surname'),
+        email = request.POST.get('email'),
+        from_email = settings.SERVER_EMAIL
+        subject = 'Challengers Club-a xoş gəldin !'
+        message = 'Hörmətli ' + str(name) + ' ' + str(surname) + '! \nMüraciətiniz üçün təşəkkür edirik. Tezliklə sizə geri dönüş edəcəyik.'
+        from_email = settings.SERVER_EMAIL
+        recipient_list = [email]
+        send_mail(subject, message, from_email, recipient_list)
+
     return render(request, 'index.html', context)
