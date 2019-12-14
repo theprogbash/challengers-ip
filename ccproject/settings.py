@@ -107,7 +107,8 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 SERVER_EMAIL = 'apikey'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_USE_TLS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
