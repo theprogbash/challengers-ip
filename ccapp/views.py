@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Question, Applicant, Message
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def index(request): 
@@ -23,5 +25,14 @@ def index(request):
                 sender_name = request.POST.get('sender_name'),
                 sender_email = request.POST.get('sender_email'),
                 message_text = request.POST.get('message_text'))
+
+        if request.method == 'POST':
+            sender_email = request.POST.get('sender_email')
+            sender_name = request.POST.get('sender_name')
+            subject = 'Challengers Club-a xoş gəldin !'
+            message = 'Hörmətli ' + str(sender_name) + '! \n Müraciətiniz üçün təşəkkür edirik. Tezliklə sualınız və ya təklifiniz cavablandırılacaq.'
+            from_email = settings.EMAIL_HOST_USER
+            recipient_list = [sender_email]
+            send_mail(subject, message, from_email, recipient_list)
 
     return render(request, 'index.html', context)
