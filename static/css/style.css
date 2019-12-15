@@ -7,6 +7,19 @@
     color: var(--main-gray);
     font-style: italic;
 }
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url("../img/calendar.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+    -webkit-appearance: none;
+}
 .fa-times:before{
     content: "×";
     font-size: 3em;
@@ -288,7 +301,7 @@ nav.scrolled {
     justify-content: center;
 }
 .greeting-buttons-container .apply-button{
-    margin: 0px 4%;
+    margin: 0px 3%;
     height: 48px;
     width: 164px;
 }
@@ -522,6 +535,9 @@ nav.scrolled {
     padding: 80px 0px;
     width: 85%;
     margin: auto;
+}
+.group-mobile{
+    display: none;
 }
 
 #about-section .left-side-about {
@@ -1127,7 +1143,7 @@ footer a:visited{
 .customized-list li {
     text-align: left;
     list-style-type: none;
-    line-height: 18px;
+    line-height: 16px;
     position: relative;
     text-indent: 5px;
     padding: 5px 0px;
@@ -1232,6 +1248,12 @@ footer a:visited{
     }
     #about-section {
         text-align: center;
+    }
+    .group-mobile{
+        display: block;
+    }
+    .group-pc{
+        display: none;
     }
     .left-side-about img {
         width: 90%;
