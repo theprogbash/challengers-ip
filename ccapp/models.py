@@ -22,9 +22,9 @@ class Applicant(models.Model):
     name = models.CharField(max_length=20)
     surname = models.CharField(max_length=30)
     birth_date = models.DateField(blank=False)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=30)
     email = models.EmailField(max_length=40)
-    motivation_letter = models.TextField(max_length=200)
+    motivation_letter = models.TextField(max_length=1000)
     status = models.ForeignKey(ApplicantStatus, on_delete=models.CASCADE, default=3)
     photo = models.FileField(upload_to='static/applicant_photos', blank=True)
 
@@ -33,7 +33,7 @@ class Applicant(models.Model):
 
 
 class Message(models.Model):
-    message_text = models.CharField(max_length=200)
+    message_text = models.CharField(max_length=1000)
     sender_name = models.CharField(max_length=30)
     sender_email = models.EmailField(max_length=50)
 
