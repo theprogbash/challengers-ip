@@ -539,6 +539,9 @@ nav.scrolled {
 .group-mobile{
     display: none;
 }
+.group-mobile{
+    display: none;
+}
 
 #about-section .left-side-about {
     width: auto;
