@@ -14,8 +14,8 @@ def index(request):
         applicant_email = request.POST.get('email')
         applicant_name = request.POST.get('name')
         applicant_surname = request.POST.get('surname')
-        subject = 'Challengers Club-a xoş gəldin !'
-        message = 'Hörmətli ' + str(applicant_name) + ' ' + str(applicant_surname) + '! \nBu marafonda iştirak etməyə baş vurduğun üçün təşəkkür edirik. Tezliklə sənə statusun barədə məlumat veriləcək.'
+        subject = 'Müraciətin qəbul olundu'
+        message = 'Salam, dəyərli ' + str(applicant_name) + ' ' + str(applicant_surname) + ', \nChallengers Club-a müraciətin etdiyin üçün təşəkkür edirəm.  1 Yanvar tarixindən etibarən müraciətin dəyərləndiriləcək və sənə ətraflı məlumat göndəriləcək. \nHəvəsin və istəyin daim olsun.'
         from_email = settings.SERVER_EMAIL
         recipient_list = [applicant_email]
         send_mail(subject, message, from_email, recipient_list)
@@ -31,8 +31,8 @@ def index(request):
         if request.POST.get('message_text'):
             sender_email = request.POST.get('sender_email')
             sender_name = request.POST.get('sender_name')
-            subject = 'Challengers Club-a xoş gəldin !'
-            message = 'Hörmətli ' + str(sender_name) + '! \nSualınız tezliklə cavablandırılacaq. Müraciətiniz üçün təşəkkür edirik. '
+            subject = 'Mesajını aldım'
+            message = 'Salam, dəyərli ' + str(sender_name) + '. \nMesajını aldım. Ən qısa zamanda cavalandıracam. \nTəşəkkür edirəm.'
             from_email = settings.SERVER_EMAIL
             recipient_list = [sender_email]
             send_mail(subject, message, from_email, recipient_list)
