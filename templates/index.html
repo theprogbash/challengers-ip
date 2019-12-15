@@ -35,12 +35,12 @@
                     <input type="text" name="surname" required minlength="3"
                     oninvalid="this.setCustomValidity('Soyadınız minimum 3 hərfdən ibarət ola bilər.')"
                     oninput="this.setCustomValidity('')"><br />
-                    <label>Doğum tarixi</label><br />
+                    <label>Doğum tarixi (tələbin 18 - 22 yaş aralığında olduğunu unutma)</label><br />
                     <input type="date" name="birth_date" required min="1998-01-01" max="2002-01-01"
                     oninvalid="this.setCustomValidity('Hörmətli namizəd, yaşınız 18-22 aralığında deyil.')"
                     oninput="this.setCustomValidity('')"><br />
                     <label>Telefon nömrəsi</label><br />
-                    <input type="number" name="phone" required minlength="10"
+                    <input type="number" name="phone" required minlength="10" placeholder="məs: 0123456789"
                     oninvalid="this.setCustomValidity('Telefon nömrənizi düzgün daxil edin.')"
                     oninput="this.setCustomValidity('')"><br />
                     <label>Elektron poçt</label><br />

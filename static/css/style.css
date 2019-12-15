@@ -3,6 +3,10 @@
     --dark-blue: #1b324b;
     --main-blue: #2669e6;
 }
+::placeholder {
+    color: var(--main-gray);
+    font-style: italic;
+}
 .fa-times:before{
     content: "×";
     font-size: 3em;
