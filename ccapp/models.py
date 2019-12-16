@@ -4,7 +4,7 @@ from datetime import datetime
 # Create your models here.
 class Question(models.Model):
     question_text = models.TextField(max_length=200)
-    answer = models.TextField(max_length=200)
+    answer = models.TextField(max_length=500)
 
     def __str__(self):
         return self.question_text
