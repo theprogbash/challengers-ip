@@ -93,7 +93,7 @@ else:
         }
     }
 
-ADMINS = [('Samir', 'hi@challengers.az')]
+ADMINS = [('Kamran', 'kamransrecovery@gmail.com')]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
