@@ -3,6 +3,38 @@
     --dark-blue: #1b324b;
     --main-blue: #2669e6;
 }
+.modal-overlay{
+    display: none;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+}
+.modal{
+    margin: auto;
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    border-radius: 5px;
+    z-index: 1;
+    padding: 0px 32px;
+    box-sizing: border-box;
+    padding-top: 20px;  
+    position: relative;
+    padding-bottom: 20px;
+    width: 50%;
+    height: auto;
+    margin-top: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.modal-header{
+    font-size: 2em;
+}
 ::placeholder {
     color: var(--main-gray);
     font-style: italic;
@@ -1166,6 +1198,9 @@ footer a:visited{
 
 /* responsive design  */
 @media screen and (max-width: 1060px) {
+    .modal{
+        width: 80%;
+    }
     .small-nav-menu{
         height: 100%;
         position: fixed;
