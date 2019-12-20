@@ -35,6 +35,9 @@
 .modal-header{
     font-size: 2em;
 }
+.modal-body{
+    margin-top: 20px;
+}
 ::placeholder {
     color: var(--main-gray);
     font-style: italic;
