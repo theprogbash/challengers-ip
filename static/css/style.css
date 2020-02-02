@@ -219,6 +219,7 @@ nav.scrolled {
 
 .right-nav {
     float: right;
+    margin-top: 8px;
 }
 
 .right-nav ul {
