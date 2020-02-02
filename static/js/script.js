@@ -24,28 +24,28 @@ for (let i = 0; i < accordion.length; i++) {
 // });
 
 // for displaying popup
-let popupOpener = document.getElementsByClassName("popup-opener")[0];
-let secondPopupOpener = document.getElementsByClassName("popup-opener")[1];
+// let popupOpener = document.getElementsByClassName("popup-opener")[0];
+// let secondPopupOpener = document.getElementsByClassName("popup-opener")[1];
 // let popupOpenerPage = document.getElementById("popup-opener-page");
-let smallPopupOpener = document.getElementById("small-popup-opener");
-let popupCloser = document.getElementById("popup-closer");
-let popup = document.getElementsByClassName("contact-overlay")[0];
+// let smallPopupOpener = document.getElementById("small-popup-opener");
+// let popupCloser = document.getElementById("popup-closer");
+// let popup = document.getElementsByClassName("contact-overlay")[0];
 
-popupOpener.addEventListener("click", function () {
-  popup.setAttribute("style", "display: block;");
-});
-secondPopupOpener.addEventListener("click", function () {
-  popup.setAttribute("style", "display: block;");
-});
+// popupOpener.addEventListener("click", function () {
+//   popup.setAttribute("style", "display: block;");
+// });
+// secondPopupOpener.addEventListener("click", function () {
+//   popup.setAttribute("style", "display: block;");
+// });
 // popupOpenerPage.addEventListener("click", function () {
 //   popup.setAttribute("style", "display: block;");
 // });
-smallPopupOpener.addEventListener("click", function () {
-  popup.setAttribute("style", "display: block;");
-});
-popupCloser.addEventListener("click", function () {
-  popup.setAttribute("style", "display: none");
-});
+// smallPopupOpener.addEventListener("click", function () {
+//   popup.setAttribute("style", "display: block;");
+// });
+// popupCloser.addEventListener("click", function () {
+//   popup.setAttribute("style", "display: none");
+// });
 
 
 $(document).ready(function (){
