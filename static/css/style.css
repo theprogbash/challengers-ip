@@ -161,9 +161,7 @@ header {
 .small-nav .show-menu {
     font-size: 2em;
     float: right;
-    padding: 4px 15px;
     color: var(--main-gray);
-    margin-top: 6px;
 }
 
 .small-nav .show-menu:hover {
